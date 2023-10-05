@@ -9,12 +9,12 @@ int main() {
     cin >> y;
     cout << "Wprowadz trzecia liczbe: ";
     cin >> z;
-    if(x > y && x > z) 
-        cout << x << " jest najwieksze";
-    else if( y > x && y > z)
-        cout << y << " jest najwieksze";
-    else if(z > y && z > x)
-        cout << z << " jest najwieksze";
+    if(x < y && x < z) 
+        cout << x << " jest najmniejsza";
+    else if( y < x && y < z)
+        cout << y << " jest najmniejsza";
+    else if(z < y && z < x)
+        cout << z << " jest najmniejsza";
     else
         cout << "liczby sa te same";
     
