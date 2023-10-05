@@ -5,7 +5,10 @@ int main() {
     int x;
     cout << "Wprowadz rok: ";
     cin >> x;
-    if((x%4==0 && x%100!=0) || x%400==0) 
+    if(x < 1582)
+	    cout << "Wtedy nie liczono jeszcze rokow przestepnych";
+    else
+    	if((x%4==0 && x%100!=0) || x%400==0) 
 		cout <<"W roku " << x << " luty mial 29 dni";
 	else
 	    cout <<"W roku " << x << " luty mial 28 dni";
