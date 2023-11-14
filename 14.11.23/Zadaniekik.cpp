@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 
 int main()
@@ -157,6 +157,14 @@ int main()
 
 		cout << "\nGracz " << znak << " podaje pole ktore chce zaznaczyc: ";
 		cin >> wybrane;
+		if (wybrane < 0 || wybrane > 9)
+		{
+			while (wybrane < 0 || wybrane > 9)
+			{
+				cout << "Debilu wybrales zly wynik, wprowadz ponownie: ";
+				cin >> wybrane;
+			}
+		}
 		switch (wybrane)
 		{
 		case 1:
@@ -201,13 +209,26 @@ koniec:
 
 
 poddanie:
+
 	if (znak == "X")
 	{
-		cout << "Gracz X poddal gre, wygrywa gracz O";
+		cout << "Gracz X poddal gre, wygrywa gracz O\n";
+		wygraneO++;
 	}
 	else
 	{
-		cout << "Gracz O poddal gre, wygrywa gracz X";
+		cout << "Gracz O poddal gre, wygrywa gracz X\n";
+		wygraneX++;
+	}
+	cout << "\nChcesz kontynuowac gre? (Tak/Nie): ";
+	cin >> kontynuacja;
+	if (kontynuacja == "Tak")
+	{
+		goto gra;
+	}
+	else
+	{
+		goto koniec;
 	}
 	return 0;
 }
