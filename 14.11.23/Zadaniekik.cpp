@@ -13,7 +13,7 @@ int main()
 	string znak;
 	int wygraneX = 0, wygraneO = 0, remis = 0;
 	string kontynuacja;
-	int n = 0;
+	int n = 0; int m = 0;
 
 	gra:
 	string tabela[3][3];
@@ -29,7 +29,7 @@ int main()
 	for (n = 0; n <= 9; n++)
 	{
 
-		cout << " " << tabela[0][0] << " | " << tabela[1][0] << " | " << tabela[2][0]
+		cout << "  " << tabela[0][0] << " | " << tabela[1][0] << " | " << tabela[2][0]
 			<< "\n " << tabela[0][1] << " | " << tabela[1][1] << " | " << tabela[2][1]
 			<< "\n " << tabela[0][2] << " | " << tabela[1][2] << " | " << tabela[2][2];
 
@@ -146,7 +146,7 @@ int main()
 			}
 		}
 
-		if (n % 2 == 0)
+		if (m % 2 == 0)
 		{
 			znak = "X";
 		}
@@ -154,7 +154,8 @@ int main()
 		{
 			znak = "O";
 		}
-
+        m++;
+        wybieranie:
 		cout << "\nGracz " << znak << " podaje pole ktore chce zaznaczyc: ";
 		cin >> wybrane;
 		if (wybrane < 0 || wybrane > 9)
@@ -168,30 +169,84 @@ int main()
 		switch (wybrane)
 		{
 		case 1:
+		    if(tabela[0][0] == "X" || tabela[0][0] == "O")
+		    {
+		        cout << "Podano zajete pole";
+		        n--;
+		        goto wybieranie;
+		    }
 			tabela[0][0] = znak;
 			break;
 		case 2:
+		    if(tabela[1][0] == "X" || tabela[1][0] == "O")
+		    {
+		        cout << "Podano zajete pole";
+		        n--;
+		        goto wybieranie;
+		    }
 			tabela[1][0] = znak;
 			break;
 		case 3:
+		if(tabela[2][0] == "X" || tabela[2][0] == "O")
+		    {
+		        cout << "Podano zajete pole";
+		        n--;
+		        goto wybieranie;
+		    }
 			tabela[2][0] = znak;
 			break;
 		case 4:
+		if(tabela[0][1] == "X" || tabela[0][1] == "O")
+		    {
+		        cout << "Podano zajete pole";
+		        n--;
+		        goto wybieranie;
+		    }
 			tabela[0][1] = znak;
 			break;
 		case 5:
+		if(tabela[1][1] == "X" || tabela[1][1] == "O")
+		    {
+		        cout << "Podano zajete pole";
+		        n--;
+		        goto wybieranie;
+		    }
 			tabela[1][1] = znak;
 			break;
 		case 6:
+		if(tabela[2][1] == "X" || tabela[2][1] == "O")
+		    {
+		        cout << "Podano zajete pole";
+		        n--;
+		        goto wybieranie;
+		    }
 			tabela[2][1] = znak;
 			break;
 		case 7:
+		if(tabela[0][2] == "X" || tabela[0][2] == "O")
+		    {
+		        cout << "Podano zajete pole";
+		        n--;
+		        goto wybieranie;
+		    }
 			tabela[0][2] = znak;
 			break;
 		case 8:
+		if(tabela[1][2] == "X" || tabela[1][2] == "O")
+		    {
+		        cout << "Podano zajete pole";
+		        n--;
+		        goto wybieranie;
+		    }
 			tabela[1][2] = znak;
 			break;
 		case 9:
+		if(tabela[2][2] == "X" || tabela[2][2] == "O")
+		    {
+		        cout << "Podano zajete pole";
+		        n--;
+		        goto wybieranie;
+		    }
 			tabela[2][2] = znak;
 			break;
 		case 0:
