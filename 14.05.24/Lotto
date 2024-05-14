@@ -1,0 +1,123 @@
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+string PobieranieImienia();
+int* PobieranieCyfr();
+int* LosowanieLiczb();
+void SprawdzanieLiczb(string NazwaPliku);
+
+
+int main()
+{
+    // pobieranie imienia
+    // pobieranie cyfr i ilosci losow
+    // zapis w pliku o nazwie = imie
+    // losowanie liczb
+    // sprawdzanie
+
+
+    string NazwaPliku = PobieranieImienia();
+    ofstream Zapis(NazwaPliku);
+
+    int* ZapisCyfr = PobieranieCyfr();
+
+    for (int n = 0; n < 6; n++)
+    {
+        Zapis << ZapisCyfr[n];
+        Zapis << " ";
+    }
+
+    int* Losowanie = LosowanieLiczb();
+
+    for (int n = 0; n < 6; n++)
+    {
+        cout << Losowanie[n] << " ";
+    }
+
+
+    SprawdzanieLiczb(NazwaPliku);
+
+
+}
+
+
+string PobieranieImienia()
+{
+    string Imie;
+
+    cout << "Witaj w programie lotto, podaj swoje imie: ";
+    cin >> Imie;
+    Imie += ".txt";
+
+    return Imie;
+}
+
+int* PobieranieCyfr()
+{
+    static int Cyfry[6];
+    cout << "Podaj 6 cyfr roznych od siebie(od 1 do 49)\n";
+    for (int i = 0; i < 6; i++)
+    {
+        cout << "Podaj liczbe: ";
+        cin >> Cyfry[i];
+        for (int n = 0; n < 6; n++)
+        {
+            if (Cyfry[i] < 1 || Cyfry[i] > 49)
+            {
+                cout << "Podano za niska, lub wysoka liczbe, podaj jeszcze raz\n";
+                i--;
+                break;
+            }
+            if (Cyfry[i] == Cyfry[n] && i != n)
+            {
+                cout << "Podano taka sama cyfre, podaj jeszcze raz\n";
+                i--;
+                break;
+            }
+
+           
+        }
+
+        
+    }
+
+    return Cyfry;
+}
+
+int* LosowanieLiczb()
+{
+    srand(time(NULL));
+    static int WylosowaneCyfry[6];
+    for (int i = 0; i < 6; i++)
+    {
+        WylosowaneCyfry[i] = rand() % 50;
+        for (int n = 0; n < 6; n++)
+        {
+            if (WylosowaneCyfry[i] < 1 || WylosowaneCyfry[i] > 49)
+            {
+                i--;
+                break;
+            }
+            if (WylosowaneCyfry[i] == WylosowaneCyfry[n] && i != n)
+            {
+                i--;
+                break;
+            }
+
+
+        }
+
+    }
+
+    return WylosowaneCyfry;
+
+}
+
+void SprawdzanieLiczb(string NazwaPliku)
+{
+    ifstream Sprawdzanie(NazwaPliku);
+
+}
