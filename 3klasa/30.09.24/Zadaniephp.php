@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
 </head>
 <body>
-        <h1>KArol Łakomiec i Szymon Ziaja</h1>
     <?php
         echo "Zadanie 1 <br><br>";
         $StopnieC = (integer)5;
