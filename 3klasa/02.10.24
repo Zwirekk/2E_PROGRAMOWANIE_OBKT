@@ -1,0 +1,70 @@
+using System;
+
+namespace Program
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Zadanie 1
+
+            /*
+            Console.WriteLine("Podaj x");
+            double x = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Podaj y");
+            double y = Convert.ToDouble(Console.ReadLine());
+
+            string cwiartka;
+
+            if(x > 0 && y > 0)
+            {
+                cwiartka = "prawa gora";
+            }
+            else if(x > 0 && y < 0)
+            {
+                cwiartka = "prawa dol";
+            }
+            else if(x < 0 && y > 0)
+            {
+                cwiartka = "lewa gora";
+            }
+            else if(x < 0 && y < 0)
+            {
+                cwiartka = "lewa dol";
+            }
+            else
+            {
+                cwiartka = "linia wykresu";
+            }
+
+            Console.WriteLine("cwiartka x i y to: " + cwiartka);
+            */
+
+
+
+            Console.WriteLine("Podaj odcinek a");
+            double a = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Podaj odcinek b");
+            double b = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Podaj odcinek c");
+            double c = Convert.ToDouble(Console.ReadLine());
+
+            if (a + b > c && a + c > b && b + c > a)
+            {
+                Console.WriteLine("Mozna stworzyc trojkat");
+                double obwod = a + b + c;
+                double p = obwod / 2;
+                double pole = Math.Sqrt(p*(p - a)*(p - b)*(p - c))
+                Console.WriteLine("obwod to: " + obwod + " pole to: " + pole);
+
+            }
+            else
+            {
+                Console.WriteLine("Nie mozna stworzyc trojkatu");
+            }
+        }
+    }
+}
